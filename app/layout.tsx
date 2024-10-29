@@ -22,19 +22,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-  <>
-    <SidebarProvider>
-      <AppSidebar />
-      <main>
-        <SidebarTrigger />
-        {children}
-      </main>
-    </SidebarProvider>
+    <>
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+		<SidebarProvider>
+        <AppSidebar />
+		  <main>
+		    <SidebarTrigger />
+		    {children}
+		  </main>
+	    </SidebarProvider>
       </body>
     </html>
 	</>
