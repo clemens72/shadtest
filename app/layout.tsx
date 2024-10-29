@@ -1,10 +1,8 @@
-import type { Metadata } from "next";
-//import localFont from "next/font/local";
+/*import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
 
-/*const geistSans = localFont({
+const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
@@ -14,7 +12,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-*/
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,6 +24,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
+*/
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
+ 
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
     <SidebarProvider>
       <AppSidebar />
       <main>
@@ -34,12 +46,5 @@ export default function RootLayout({
         {children}
       </main>
     </SidebarProvider>
-	/*<html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>*/
-  );
+  )
 }
